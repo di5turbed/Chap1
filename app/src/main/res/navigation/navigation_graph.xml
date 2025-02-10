@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/Сhats">
+
+    <fragment android:id="@+id/Сhats" >
+        <action
+            android:id="@+id/hats_to_chat"
+            app:destination="@id/Сhat" />
+    </fragment>
+    <fragment android:id="@+id/Сhat" >
+        <action
+            android:id="@+id/Сontacts"
+            app:destination="@id/Сontacts" />
+    </fragment>
+    <fragment android:id="@+id/Сontacts" />
+</navigation>
