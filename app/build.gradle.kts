@@ -16,9 +16,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        buildFeatures {
-            viewBinding = true
-        }
+
     }
 
     buildTypes {
@@ -36,6 +34,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = "11"
+    }
+    buildFeatures {
+        viewBinding = true
     }
 }
 

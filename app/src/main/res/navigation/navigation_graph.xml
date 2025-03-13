@@ -1,18 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/Сhats">
+    app:startDestination="@id/fragmentChats">
+    <fragment
+        android:id="@+id/fragmentChats"
+        android:name="com.example.chap.FragmentChats"
+        android:label="fragment_chats"
+        tools:layout="@layout/fragment_chats" >
+        <action
+            android:id="@+id/action_fragmentChats_to_fragmentChat"
+            app:destination="@id/fragmentChat"
+            app:enterAnim="@anim/slideinright"
+            app:exitAnim="@anim/slideoutleft"
+            app:popEnterAnim="@anim/slideinleft"
+            app:popExitAnim="@anim/slideoutright"/>
+        <action
+            android:id="@+id/action_fragmentChats_to_settings"
+            app:destination="@id/settings" />
+    </fragment>
 
-    <fragment android:id="@+id/Сhats" >
+    <fragment
+        android:id="@+id/fragmentChat"
+        android:name="com.example.chap.FragmentChat"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" >
         <action
-            android:id="@+id/hats_to_chat"
-            app:destination="@id/Сhat" />
-    </fragment>
-    <fragment android:id="@+id/Сhat" >
+            android:id="@+id/action_fragmentChat_to_fragmentContacts2"
+            app:destination="@id/fragmentContacts" />
         <action
-            android:id="@+id/Сontacts"
-            app:destination="@id/Сontacts" />
+            android:id="@+id/action_fragmentChat_to_fragmentChats"
+            app:destination="@id/fragmentChats" />
+
     </fragment>
-    <fragment android:id="@+id/Сontacts" />
+    <fragment
+        android:id="@+id/fragmentContacts"
+        android:name="com.example.chap.FragmentContacts"
+        android:label="fragment_contacts"
+        tools:layout="@layout/fragment_contacts" />
+    <fragment
+        android:id="@+id/settings"
+        android:name="com.example.chap.settings"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>

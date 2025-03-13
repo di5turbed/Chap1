@@ -1,43 +1,25 @@
 package com.example.chap
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
+import com.example.chap.FragmentChats
+import com.example.chap.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .add(R.id.fragment_container_view, Chats())
-                .commit()
-        }
-    }
-}
-class ChatsFragment : Fragment() {
-    private var _binding: FragmentChatsBinding? = null
-    private val binding get() = _binding!!
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentChatsBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.textView.text = "Чаты"
-    }
+        binding.bottomNavigation.setupWithNavController(navController)
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }
