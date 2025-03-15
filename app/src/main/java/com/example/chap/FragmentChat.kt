@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.chap.databinding.FragmentChatBinding
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 class FragmentChat : Fragment() {
 
@@ -28,7 +26,7 @@ class FragmentChat : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.backButton.setOnClickListener {
-            findNavController().navigate(R.id.action_fragmentChat_to_fragmentChats)
+            findNavController().navigateUp()
         }
     }
 

@@ -16,24 +16,13 @@
             app:exitAnim="@anim/slideoutleft"
             app:popEnterAnim="@anim/slideinleft"
             app:popExitAnim="@anim/slideoutright"/>
-        <action
-            android:id="@+id/action_fragmentChats_to_settings"
-            app:destination="@id/settings" />
     </fragment>
 
     <fragment
         android:id="@+id/fragmentChat"
         android:name="com.example.chap.FragmentChat"
         android:label="fragment_chat"
-        tools:layout="@layout/fragment_chat" >
-        <action
-            android:id="@+id/action_fragmentChat_to_fragmentContacts2"
-            app:destination="@id/fragmentContacts" />
-        <action
-            android:id="@+id/action_fragmentChat_to_fragmentChats"
-            app:destination="@id/fragmentChats" />
-
-    </fragment>
+        tools:layout="@layout/fragment_chat" />
     <fragment
         android:id="@+id/fragmentContacts"
         android:name="com.example.chap.FragmentContacts"
